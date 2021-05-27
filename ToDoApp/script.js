@@ -54,7 +54,6 @@ function deleteItem(event){
         }
 }
 
-
 function deleteAllItems(event){
     event.preventDefault()
     if(confirm('Are you sure?')){
@@ -67,7 +66,7 @@ function deleteAllItems(event){
 function addItems(){
     for(let i = 0; i<localStorage.length; i++){
         console.log(i)
-       createTask(localStorage.getItem(i))
+       createTask(localStorage.getItem(i),id=i)
     }
 
 }
