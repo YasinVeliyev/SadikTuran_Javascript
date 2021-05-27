@@ -1,6 +1,5 @@
 let form = document.querySelector('form')
 let input = document.querySelector('#taskName')
-let btnAddNewTask = document.querySelector("#btnAddNewTask")
 let btnDeleteAll = document.querySelector("#btnDeleteAll")
 let ul = document.querySelector("#task-list")
 
