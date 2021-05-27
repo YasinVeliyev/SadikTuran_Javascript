@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>My Task List</title>
+</head>
+<body>
+    <main class='container p-3'>
+        <header class='app-title' id='header'>To Do App</header>
+        <section class="card">
+            <div class="card-header">
+                <h4>New Task</h4>
+            </div>
+
+            <div class="card-body">
+                <form id="addTaskForm">
+                    <div class="input-group mt-3">
+                        <input type="text" id="taskName" class='form-control' placeholder='Type a new task'>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type='submit' id='btnAddNewTask'>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="card mt-3">
+            <div class="card-header">
+                Task List
+                <a href="#" id="btnDeleteAll" class='btn btn-outline-danger btn-sm float-right'>Delete All</a>
+            </div>
+            <ul id="task-list" class='list-group'>
+
+            </ul>
+        </section>
+        
+    </main>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/7630ca1f15.js" crossorigin="anonymous"></script>
+</body>
+</html>
