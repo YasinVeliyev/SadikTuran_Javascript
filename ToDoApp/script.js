@@ -13,11 +13,7 @@ function eventListener(){
     addItems()
 }
 
-function addNewItem(event){
-    event.preventDefault()
-    if(input.value === ''){
-        alert('Ad New Item')
-    }
+function createTask(value,id){
     
     let a = document.createElement('a')
     a.className = 'delete-item float-right'
@@ -25,21 +21,35 @@ function addNewItem(event){
     a.innerHTML = "<i class='fas fa-times'></i>"
 
     let li = document.createElement('li')
+    li.setAttribute('data-id',id)
     li.className = 'list-group-item list-group-item-secondary'
-    li.innerText = input.value
-    localStorage.setItem(localStorage.length,input.value)
-    input.value = ''
+    li.innerText = value
+    
     li.appendChild(a)
     ul.appendChild(li)
+    return ul
+}
+
+function addNewItem(event){
+    event.preventDefault()
+    if(input.value === ''){
+        alert('Ad New Item')
+    }
+    else{
+        createTask(value=input.value, id=localStorage.length)
+        localStorage.setItem(localStorage.length, input.value)
+        input.value = ''
+    }   
     
 }
 
 function deleteItem(event){
-    
     event.preventDefault()
     if (event.target.className == "fas fa-times"){
         if(confirm('Are you sure?')){
-            event.target.parentElement.parentElement.remove()
+            let elem =  event.target.parentElement.parentElement;
+            localStorage.removeItem(elem.getAttribute('data-id'))
+            elem.remove()
             }  
         }
 }
@@ -55,20 +65,9 @@ function deleteAllItems(event){
 }
 
 function addItems(){
-    for(let i = 0;i<localStorage.length;i++){
-        let a = document.createElement('a')
-        a.className = 'delete-item float-right'
-        a.href = "#"
-        a.innerHTML = "<i class='fas fa-times'></i>"
-    
-        let li = document.createElement('li')
-        li.className = 'list-group-item list-group-item-secondary'
-        li.innerText = localStorage.getItem(i)
-        console.log(localStorage.getItem(i))
-        // localStorage.setItem(localStorage.length,input.value)
-        // input.value = ''
-        li.appendChild(a)
-        ul.appendChild(li)
+    for(let i = 0; i<localStorage.length; i++){
+        console.log(i)
+       createTask(localStorage.getItem(i))
     }
 
 }
