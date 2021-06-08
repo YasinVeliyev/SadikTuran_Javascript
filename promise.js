@@ -7,16 +7,16 @@ let p = new Promise(function(resolve, reject){
     }
 })
 
-p.then(msg=>console.log(msg),err=>console.log(err))
+p.then(console.log,console.log)
 
 new Promise(function(resolve,reject){
-    setTimeout(()=>{
-        resolve(5)
-    },1000)
-}).then(number=>{
+    setTimeout(()=>{resolve(5)},1000)
+})
+.then(number=>{
     console.log(number)
     return number * number
-}).then(number=>console.log(number))
+})
+.then(console.log)
 
 
 let isMomHappy = true;
