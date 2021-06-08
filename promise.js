@@ -48,3 +48,53 @@ let askMom = () => {
     .catch(console.log)
 }
 askMom()
+
+let myObj = {
+    // method : "POST",
+    url:"https://randomuser.me/api/?results=5",
+    // headers :[
+    //     {"content-type":"application/json"}
+    // ]
+}
+
+let request = obj => {
+    return new Promise((resolve,reject)=>{
+
+        let xhr = new XMLHttpRequest();
+        xhr.open(obj.method || 'GET', obj.url)
+
+        if(obj.headers){
+            console.log(xhr.responseText)
+            Objecy.keys(object.headers).forEach(key => xhr.setRequestHeader(key, obj.headers[key]))
+        }
+
+        xhr.onload = () => {
+            if(xhr.status >= 200 && xhr.status < 300){
+                resolve(xhr.responseText)
+            }
+            else{
+                document.write(typeof xhr.status)
+                reject(xhr.statusText)
+            }
+        }
+
+        xhr.onerror = () => {
+            reject(xhr.statusText)
+        }
+
+        xhr.send()
+    })
+}
+
+request(myObj)
+.then((data)=>console.log(JSON.parse(data, null, 4).results))
+.catch(console.log)
+
+
+async function getText(){
+    let result = await fetch(myObj.url)
+    let data = await result.json()
+    console.log('Data',...data.results)
+}
+
+getText()
