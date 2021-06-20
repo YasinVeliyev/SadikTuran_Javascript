@@ -148,15 +148,12 @@ let UiController = (function(){
 let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
     
     UiCtrl.buttons.addBtn.addEventListener('click', (e)=>{
-        let name = UiCtrl.inputs.name;
-        let price = UiCtrl.inputs.price
         e.preventDefault() 
-        if(name.value!==''&&price.value!==""){
-            let product = ProdCtrl.addProduct(name.value, price.value)
+        if(UiCtrl.inputs.name.value!==''&&UiCtrl.inputs.price.value!==""){
+            let product = ProdCtrl.addProduct(UiCtrl.inputs.name.value, UiCtrl.inputs.price.value)
             UiCtrl.deleteInputValue()
             UiCtrl.addElement(product)
-            let total = ProdCtrl.geTotal();
-            UiCtrl.showTotal(total)
+            UiCtrl.showTotal(ProdCtrl.geTotal())
         }
        
     })
@@ -173,10 +170,8 @@ let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
     //Save Update
     UiCtrl.buttons.saveBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        let name = UiCtrl.inputs.name;
-        let price = UiCtrl.inputs.price
-        if(name.value!==''&&price.value!==""){
-           ProdCtrl.updateProduct(name.value,price.value)
+        if(UiCtrl.inputs.name.value!==''&&UiCtrl.inputs.price.value!==""){
+           ProdCtrl.updateProduct(UiCtrl.inputs.name.value, UiCtrl.inputs.price.value)
            UiCtrl.updateProduct()
            UiCtrl.deleteInputValue()
         }
