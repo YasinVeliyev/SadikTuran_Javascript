@@ -7,11 +7,8 @@ let StorageController = (function(){
         getProducts(){
             return JSON.parse(localStorage.getItem('products'))||[]
         },
-        
-
     }
 })()
-
 
 //Product Controller
 let ProductController = (function(){
@@ -74,10 +71,7 @@ let ProductController = (function(){
 
 })()
 
-
-
 //UI Controller
-
 let UiController = (function(){
     let table = document.querySelector("#item-list")
     let totalTl = document.querySelector("#total-tl")
@@ -151,7 +145,6 @@ let UiController = (function(){
 })()
 
 //App Controller
-
 let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
     
     UiCtrl.buttons.addBtn.addEventListener('click', (e)=>{
@@ -190,7 +183,6 @@ let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
     })
 
     //Cancel Update
-
     UiCtrl.buttons.cancelBtn.addEventListener('click', (e) => {
         e.preventDefault();
         UiCtrl.addState()
@@ -198,7 +190,6 @@ let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
     })
 
     //Delete product
-
     UiCtrl.buttons.deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         ProdCtrl.deleteProductById(ProdCtrl.getData().selectedProduct.id)
@@ -209,9 +200,6 @@ let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
         
     })
 
-
-   
-
     return {
         init(){
             console.log('Starting app...')
@@ -220,11 +208,9 @@ let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
             if(!products.length){
                 UiCtrl.hideCard()
             }
-
             else{
                 UiCtrl.createProductList(products)
-            }
-            
+            }        
         }
     }
 })(ProductController, UiController, StorageController)
