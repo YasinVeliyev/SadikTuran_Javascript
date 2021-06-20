@@ -145,7 +145,7 @@ let UiController = (function(){
 })()
 
 //App Controller
-let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
+let App = (function(ProdCtrl,UiCtrl){
     
     UiCtrl.buttons.addBtn.addEventListener('click', (e)=>{
         e.preventDefault() 
@@ -208,6 +208,6 @@ let App = (function(ProdCtrl,UiCtrl,StorageCtrl){
             }        
         }
     }
-})(ProductController, UiController, StorageController)
+})(ProductController, UiController)
 
 App.init()
