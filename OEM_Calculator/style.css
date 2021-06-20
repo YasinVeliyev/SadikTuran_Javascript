@@ -1,0 +1,7 @@
+.deleteBtn,.cancelBtn,.saveBtn{
+    display:none
+}
+
+.fa-edit{
+    cursor: pointer;
+}
